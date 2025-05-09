@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Table Reservation</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    .header {
+      background-color: #ffffff;
+      border-bottom: 1px solid #ccc;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #1b1b1b;
+    }
+
+    .close-back {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18px;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 10%;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .section {
+      flex: 1;
+      min-width: 300px;
+      background-color: #ffffff;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .section h2 {
+      margin-top: 0;
+      color: #444;
+    }
+
+    .section h6 {
+      margin: 5px 0 15px;
+      font-weight: normal;
+      color: #777;
+    }
+
+    .section p {
+      margin-bottom: 30px;
+    }
+
+    button.my-button, button.my-button-2, .my-button-submit {
+      background-color: #fff;
+      color: #000;
+      padding: 10px 20px;
+      border: 2px solid #000;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+
+    button.my-button:hover, button.my-button-2:hover, .my-button-submit:hover {
+      background-color: #e6e6e6;
+    }
+
+    #counter-adults, #counter-babies, #counter-children, #counter-pets {
+      font-weight: bold;
+      font-size: 18px;
+      margin: 0 10px;
+    }
+
+    .information {
+      background-color: #ffffff;
+      padding: 30px 10%;
+      margin: 30px auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .information h2.text, .information h3 {
+      color: #444;
+    }
+
+    input[type="text"], input[type="date"], input[type="time"], textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    input[type="radio"] {
+      margin-right: 8px;
+    }
+
+    .radio-group {
+      margin: 10px 0 30px;
+    }
+
+    .my-button-submit {
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .information {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="title">Name</div>
+    <a href="index.html" class="close-back">Close X</a>
+  </div>
+
+  <div class="container">
+    <div class="section">
+      <h2>Adults</h2>
+      <h6>Age: 18+ yrs</h6>
+      <p>
+        <button class="my-button" id="my-button-adults">+</button>
+        <span id="counter-adults">1</span>
+        <button class="my-button-2" id="my-button-2-adults">-</button>
+      </p>
+
+      <h2>Babies</h2>
+      <h6>Age: 0 to 2 yrs</h6>
+      <p>
+        <button class="my-button" id="my-button-babies">+</button>
+        <span id="counter-babies">0</span>
+        <button class="my-button-2" id="my-button-2-babies">-</button>
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Children</h2>
+      <h6>Age: 3 to 18 yrs</h6>
+      <p>
+        <button class="my-button" id="my-button-children">+</button>
+        <span id="counter-children">0</span>
+        <button class="my-button-2" id="my-button-2-children">-</button>
+      </p>
+
+      <h2>Pets</h2>
+      <h6>Max: 2</h6>
+      <p>
+        <button class="my-button" id="my-button-pets">+</button>
+        <span id="counter-pets">0</span>
+        <button class="my-button-2" id="my-button-2-pets">-</button>
+      </p>
+    </div>
+  </div>
+
+  <div class="information">
+    <form>
+      <h2 class="text">Full Name</h2>
+      <input type="text" placeholder="Your Name" required>
+
+      <h2 class="text">Email</h2>
+      <input type="text" placeholder="xyz@gmail.com" required>
+
+      <h2 class="text">Contact</h2>
+      <input type="text" placeholder="Phone Number" required>
+
+      <h2 class="text">Preferred Date</h2>
+      <input type="date" required>
+
+      <h2 class="text">Preferred Time</h2>
+      <input type="time" required>
+
+      <h3>Optional</h3>
+
+      <h2 class="text">Any Allergies</h2>
+      <textarea placeholder="Please mention any allergies..."></textarea>
+
+      <h2 class="text">Seating Preferences</h2>
+      <textarea placeholder="Garden, Private Room, etc."></textarea>
+
+      <h2 class="text">Special Setups</h2>
+      <textarea placeholder="e.g., Birthday Celebration"></textarea>
+
+      <h2 class="text">Contact Preferences</h2>
+      <div class="radio-group">
+        <label><input type="radio" name="Contact" value="Phone">Phone</label><br>
+        <label><input type="radio" name="Contact" value="Email">Email</label><br>
+        <label><input type="radio" name="Contact" value="SMS">SMS</label>
+      </div>
+
+      <button class="my-button-submit" type="submit">Submit</button>
+    </form>
+    <script>
+      document.querySelector("form").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const contactInput = document.querySelector('input[placeholder="Phone Number"]').value.trim();
+  const dateInput = document.querySelector('input[type="date"]').value;
+  const emailInput = document.querySelector('input[placeholder="xyz@gmail.com"]').value.trim();
+  const nameInput = document.querySelector('input[placeholder="Your Name"]').value.trim();
+
+  const selectedDate = new Date(dateInput);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  if (nameInput.length<1){
+    alert("Please enter a valid name");
+    return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput)) {
+  alert("Enter a valid email");
+  return;
+  }
+  
+  if (!/^\d{10}$/.test(contactInput)) {
+    alert("Please enter a valid 10-digit contact number.");
+    return; 
+  }
+  if (!dateInput || selectedDate < today) {
+    alert("Please select a valid reservation date that is today or in the future.");
+    return;
+  }
+
+  alert("Your reservation has been submitted successfully!");
+  window.location.href = "index.html"; 
+
+  
+});
+ 
+    </script>
+  </div>
+
+  <script>
+    function setupCounter(buttonIdAdd, buttonIdSub, counterId, min = 0, max = 15) {
+      let count = parseInt(document.getElementById(counterId).textContent);
+      const buttonAdd = document.getElementById(buttonIdAdd);
+      const buttonSub = document.getElementById(buttonIdSub);
+      const counter = document.getElementById(counterId);
+
+      buttonAdd.addEventListener('click', () => {
+        if (count < max - 1) {
+          count++;
+          counter.textContent = count;
+        }
+      });
+
+      buttonSub.addEventListener('click', () => {
+        if (count > min) {
+          count--;
+          counter.textContent = count;
+        }
+      });
+    }
+
+    setupCounter('my-button-adults', 'my-button-2-adults', 'counter-adults', 1);
+    setupCounter('my-button-babies', 'my-button-2-babies', 'counter-babies');
+    setupCounter('my-button-children', 'my-button-2-children', 'counter-children');
+    setupCounter('my-button-pets', 'my-button-2-pets', 'counter-pets', 0, 3);
+  </script>
+</body>
+</html>
